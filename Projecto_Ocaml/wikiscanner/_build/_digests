@@ -1,0 +1,6 @@
+"Rule: ocamllex (%=wikiscanner )": "\139\162[I\161\195\019\243\198M*\145\127\164\232\201"
+"Rule: ocaml: ml & cmi -> cmx & o (%=wikiscanner )": "\179\"\030a^\146\204\190\153\228r\227\236b\231M"
+"Rule: ocaml dependencies ml (%=wikiscanner )": "\192\b\176L+\187\176\141\253R\1934\018\031\218V"
+"Rule: ocaml: ml -> cmo & cmi (%=wikiscanner )": "^Y\192\138\002\136\150v\2204K\230\242\001\139\223"
+"Resource: /home/roberto/Projecto_final_curso/Projecto_Ocaml/wikiscanner/wikiscanner.mll": "~\249K*z\179\222-:\140\245[\156RT\236"
+"Rule: ocaml: cmx* & o* -> native (%=wikiscanner )": "\254\018\235<\174\203\234\155\212\231\014X\216\152\161\178"

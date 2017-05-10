@@ -263,7 +263,7 @@ $(OCAMLGRAPH_SRCDIR)/blocks.cmx: | graph.cmo
 ##########
 
 EXAMPLESBIN=bin/demo.$(OCAMLBEST) bin/demo_planar.$(OCAMLBEST) \
-  bin/bench.$(OCAMLBEST) bin/color.$(OCAMLBEST) bin/sudoku.$(OCAMLBEST)  bin/size.$(OCAMLBEST) \
+  bin/bench.$(OCAMLBEST) bin/color.$(OCAMLBEST) bin/sudoku.$(OCAMLBEST)  bin/size.$(OCAMLBEST) bin/boruvka.$(OCAMLBEST) \
   bin/test.$(OCAMLBEST)  bin/sudoku_test.$(OCAMLBEST) bin/zombies.$(OCAMLBEST) bin/compare_prim_kruskal.$(OCAMLBEST) bin/maze.$(OCAMLBEST)  \
 
 .PHONY: examples
@@ -305,6 +305,14 @@ bin/demo_planar.byte: $(CMA) examples/demo_planar.cmo
 	$(OCAMLC) -o $@ graphics.cma unix.cma $^
 
 bin/demo_planar.opt: $(CMXA) examples/demo_planar.cmx
+	mkdir -p bin
+	$(OCAMLOPT) -o $@ graphics.cmxa unix.cmxa $^
+
+bin/boruvka.byte: $(CMA) examples/boruvka.cmo
+	mkdir -p bin
+	$(OCAMLC) -o $@ graphics.cma unix.cma $^
+
+bin/boruvka.opt: $(CMXA) examples/boruvka.ml
 	mkdir -p bin
 	$(OCAMLOPT) -o $@ graphics.cmxa unix.cmxa $^
 
@@ -402,7 +410,7 @@ check: $(CMA) tests/check.ml bin/test-ts
 # Additional rules
 ##################
 
-EXAMPLES = demo color demo_planar sudoku sudoku_test zombies compare_prim_kruskal maze size
+EXAMPLES = demo color demo_planar sudoku sudoku_test zombies compare_prim_kruskal maze size boruvka
 EXAMPLESBIN:=$(patsubst %, bin/%.opt, $(EXAMPLES))
 EXAMPLES:= $(patsubst %, examples/%.ml, $(EXAMPLES))
 
